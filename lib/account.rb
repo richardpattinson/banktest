@@ -1,18 +1,18 @@
 require 'time'
-require 'transaction'
+require './lib/transaction'
 class AccountManager
     attr_reader :account_history, :balance
     def initialize
         @balance = 0
         @account_history = []
     end
-    def deposit(value, date)
-        deposit = Transaction.new(value, "deposit", date)
+    def deposit(value)
+        deposit = Transaction.new(value, "deposit")
         @balance += value
         @account_history.push(deposit)
     end
-    def withdraw(value, date)
-        withdraw = Transaction.new(value, "withdrawal", date)
+    def withdraw(value)
+        withdraw = Transaction.new(value, "withdrawal")
         @balance -= value
         @account_history.push(withdraw)
     end
@@ -37,12 +37,5 @@ class AccountManager
 
 end
 
-class Transaction
-    attr_reader :value, :type, :date
-    def initialize(value, type, date)
-        @value = value
-        @type = type
-        @date = Time.strptime(date, "%d-%m-%Y")
-    end
-end
+
 account = AccountManager.new
