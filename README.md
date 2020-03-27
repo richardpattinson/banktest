@@ -1,3 +1,7 @@
+## Bank 
+
+This is a simple app to manage a bank account, it can store and track deposits and withdrawals with the date that they were made and print an account statement reflecting this information.
+
 ## INSTRUCTIONS
 run irb, requiring './lib/account'
 All methods performed on the 'account' instance of the AccountManager class.
